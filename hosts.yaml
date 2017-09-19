@@ -9,6 +9,7 @@
     - name: check if entry already presented
       shell: cat /etc/hosts |grep {{ansible_ssh_connection}}
       register: entry_check
+      ignore_errors: true
       
     - debug:
         var: entry_check.stdout
