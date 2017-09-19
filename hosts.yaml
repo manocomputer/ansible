@@ -1,0 +1,12 @@
+---
+- hosts: at01
+  tasks:
+    - name: Get host name
+      shell: hostname
+      register: machine_name
+    - debug:
+        var: machine_name.stdout
+        
+    - name: Update hosts file
+      shell: echo "{{ansiblle_connection}} at01.example.com at01" >> /etc/hosts
+      
