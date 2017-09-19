@@ -8,5 +8,8 @@
         var: machine_name.stdout
         
     - name: Update hosts file
-      shell: echo "{{ansible_ssh_connection}} at01.example.com at01" >> /etc/hosts
+      shell: |
+        echo "{{ansible_ssh_connection}} at01.example.com at01" >> /etc/hosts
+        echo "192.168.2.95 at02.example.com at02" >> /etc/hosts
+      
       
